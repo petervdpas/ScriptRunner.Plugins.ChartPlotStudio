@@ -1,0 +1,113 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:scottPlot="clr-namespace:ScottPlot.Avalonia;assembly=ScottPlot.Avalonia"
+        xmlns:vm="using:ScriptRunner.Plugins.ChartPlotStudio.ViewModels"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=vm:ChartDialogModel, IsDesignTimeCreatable=True}"
+        x:Class="ScriptRunner.Plugins.ChartPlotStudio.Dialogs.ChartDialog"
+        Title="ChartDialog"
+        Width="400"
+        Height="200"
+        WindowStartupLocation="CenterOwner"
+        Icon="avares://ScriptRunner/Assets/hacker.ico"
+        x:DataType="vm:ChartDialogModel">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <Border Grid.Row="0"
+                BorderBrush="Gray" BorderThickness="0,0,0,1" Margin="2, 0, 2, 2">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="File">
+                    <MenuItem Header="Exit" Command="{Binding QuitCommand}" />
+                </MenuItem>
+            </Menu>
+        </Border>
+
+        <Grid Grid.Row="1" ColumnDefinitions="4*,4,7*">
+            <!-- Configuration Pane -->
+            <ScrollViewer Grid.Column="0" Margin="10" VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="10" Spacing="10">
+                    <TextBlock Text="Chart Configuration" FontWeight="Bold" />
+                    <!-- Chart Type Selector -->
+                    <TextBlock Text="Chart Type:" />
+                    <ComboBox
+                        ItemsSource="{Binding ChartTypes}"
+                        SelectedItem="{Binding SelectedChartType}" />
+                    <!-- Title -->
+                    <TextBlock Text="Title:" />
+                    <TextBox Text="{Binding ChartConfig.Title}" />
+                    <!-- Axis Labels -->
+                    <TextBlock Text="X-Axis Label:" />
+                    <TextBox Text="{Binding ChartConfig.XLabel}" />
+                    <TextBlock Text="Y-Axis Label:" />
+                    <TextBox Text="{Binding ChartConfig.YLabel}" />
+                    <!-- Legend Visibility -->
+                    <CheckBox Content="Show Legend" IsChecked="{Binding ChartConfig.ShowLegend}" />
+
+                    <!-- Pie Chart-Specific -->
+                    <Grid ColumnDefinitions="Auto,*">
+                        <TextBlock Text="Pie Explode Fraction:" Grid.Column="0" VerticalAlignment="Center" />
+                        <NumericUpDown Value="{Binding ChartConfig.PieExplodeFraction}"
+                                       Minimum="0" Maximum="1" Increment="0.1" Grid.Column="1" Width="120"
+                                       HorizontalAlignment="Right" />
+                    </Grid>
+
+                    <Grid ColumnDefinitions="Auto,*">
+                        <TextBlock Text="Pie Slice Label Distance:" Grid.Column="0" VerticalAlignment="Center" />
+                        <NumericUpDown Value="{Binding ChartConfig.PieSliceLabelDistance}"
+                                       Minimum="0" Maximum="2" Increment="0.1" Grid.Column="1" Width="120"
+                                       HorizontalAlignment="Right" />
+                    </Grid>
+
+                    <!-- Bar Chart-Specific -->
+                    <Grid ColumnDefinitions="Auto,*">
+                        <TextBlock Text="Bar Width Percentage:" Grid.Column="0" VerticalAlignment="Center" />
+                        <NumericUpDown Value="{Binding ChartConfig.BarWidthPercentage}"
+                                       Minimum="10" Maximum="100" Increment="5" Grid.Column="1" Width="120"
+                                       HorizontalAlignment="Right" />
+                    </Grid>
+
+                    <!-- Histogram-Specific -->
+                    <Grid ColumnDefinitions="Auto,*">
+                        <TextBlock Text="Histogram Bin Count:" Grid.Column="0" VerticalAlignment="Center" />
+                        <NumericUpDown Value="{Binding ChartConfig.HistogramBinCount}"
+                                       Minimum="1" Maximum="50" Increment="1" Grid.Column="1" Width="120"
+                                       HorizontalAlignment="Right" />
+                    </Grid>
+
+                    <!-- Line Chart-Specific -->
+                    <CheckBox Content="Show Markers (Line Chart)" IsChecked="{Binding ChartConfig.LineShowMarkers}" />
+                    <!-- Base Color -->
+                    <TextBlock Text="Base Color:" />
+                    <StackPanel Orientation="Horizontal" Spacing="5">
+                        <ColorPicker Color="{Binding SelectedColor, Mode=TwoWay}" />
+                        <TextBox Text="{Binding BaseColorHex, Mode=TwoWay}" Width="100" VerticalAlignment="Center" />
+                    </StackPanel>
+
+                    <!-- Apply Button -->
+                    <Button Content="Apply Changes" Command="{Binding ApplyChangesCommand}" />
+                </StackPanel>
+            </ScrollViewer>
+
+            <GridSplitter Grid.Column="1" Background="Gray" ResizeDirection="Columns" BorderThickness="4" />
+
+            <!-- Chart Area -->
+            <scottPlot:AvaPlot Grid.Column="2" Name="AvaPlotOne" DockPanel.Dock="Top"
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Stretch" />
+        </Grid>
+
+        <!-- Status Bar at the Bottom -->
+        <Border Grid.Row="2"
+                BorderBrush="Gray" BorderThickness="0,1,0,0" Margin="2, 2, 2, 0">
+            <StackPanel Orientation="Horizontal" Margin="2">
+                <TextBlock Text="Status:" VerticalAlignment="Center" Margin="5,5,0,5" />
+                <TextBlock Text="{Binding StatusMessage}" FontStyle="Oblique" VerticalAlignment="Center" Margin="5" />
+            </StackPanel>
+        </Border>
+
+    </Grid>
+
+</Window>
