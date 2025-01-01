@@ -32,7 +32,7 @@ public class ChartPlotStudio : IChartPlotStudio
     /// The dialog renders the chart using the <see cref="IChartPlotter" /> and opens as a modal window.
     /// The method supports customization of the dialog's dimensions and title.
     /// </remarks>
-    public async Task<string?> ShowChartDialogAsync(
+    public async Task<string?> GetChartPlotDialogAsync(
         IChartPlotter chartPlotter,
         string title, 
         int width = 640, 

@@ -26,7 +26,7 @@ public interface IChartPlotStudio
     /// This method is used to display a chart dialog configured with the provided parameters.
     /// The dialog binds to a view model and renders a chart using the <see cref="IChartPlotter" /> implementation.
     /// </remarks>
-    Task<string?> ShowChartDialogAsync(
+    Task<string?> GetChartPlotDialogAsync(
         IChartPlotter chartPlotter,
         string title,
         int width = 640,
