@@ -8,6 +8,7 @@ using ScottPlot.Statistics;
 using ScriptRunner.Plugins.ChartPlotStudio.Enums;
 using ScriptRunner.Plugins.ChartPlotStudio.Interfaces;
 using ScriptRunner.Plugins.ChartPlotStudio.Models;
+using ScriptRunner.Plugins.Logging;
 
 namespace ScriptRunner.Plugins.ChartPlotStudio;
 
@@ -16,7 +17,7 @@ namespace ScriptRunner.Plugins.ChartPlotStudio;
 /// </summary>
 public class ChartPlotter : IChartPlotter
 {
-    private readonly ILogger<ChartPlotter> _logger;
+    private readonly IPluginLogger _logger;
     private ChartConfig? _chartConfig;
     private double[] _data = [];
 
@@ -24,7 +25,7 @@ public class ChartPlotter : IChartPlotter
     ///     Initializes a new instance of the <see cref="ChartPlotter"/> class.
     /// </summary>
     /// <param name="logger">The <see cref="ILogger{TCategoryName}"/> instance for logging.</param>
-    public ChartPlotter(ILogger<ChartPlotter> logger)
+    public ChartPlotter(IPluginLogger logger)
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }

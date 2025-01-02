@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using ScriptRunner.Plugins.Attributes;
 using ScriptRunner.Plugins.ChartPlotStudio.Interfaces;
+using ScriptRunner.Plugins.Logging;
 using ScriptRunner.Plugins.Utilities;
 
 namespace ScriptRunner.Plugins.ChartPlotStudio;
@@ -62,7 +62,7 @@ public class Plugin : BaseAsyncServicePlugin
         await Task.Delay(50);
 
         services.AddSingleton<IChartPlotter>(sp => 
-            new ChartPlotter(sp.GetRequiredService<ILogger<ChartPlotter>>()));
+            new ChartPlotter(sp.GetRequiredService<IPluginLogger>()));
 
         services.AddSingleton<IChartPlotStudio, IChartPlotStudio>();
     }

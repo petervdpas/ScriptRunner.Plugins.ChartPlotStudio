@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using ScottPlot;
 using ScriptRunner.Plugins.ChartPlotStudio.Enums;
+using ScriptRunner.Plugins.Logging;
 
 namespace ScriptRunner.Plugins.ChartPlotStudio.Models;
 
@@ -99,22 +100,22 @@ public class ChartConfig
     /// Logs all the property values of the ChartConfig instance.
     /// </summary>
     /// <param name="logger">The <see cref="ILogger"/> instance used for logging.</param>
-    public void LogDebugValues(ILogger logger)
+    public void LogDebugValues(IPluginLogger logger)
     {
-        logger.LogDebug("ChartConfig Values:");
-        logger.LogDebug("ChartType: {ChartType}", ChartType);
-        logger.LogDebug("Title: {Title}", Title);
-        logger.LogDebug("Labels: {Labels}", Labels != null ? string.Join(", ", Labels) : "null");
-        logger.LogDebug("Colors: {Colors}", Colors != null ? string.Join(", ", Colors.Select(c => c.ToString())) : "null");
-        logger.LogDebug("BaseColor: {BaseColor}", BaseColor?.ToString() ?? "null");
-        logger.LogDebug("KeepColorsNull: {KeepColorsNull}", KeepColorsNull);
-        logger.LogDebug("XLabel: {XLabel}", XLabel);
-        logger.LogDebug("YLabel: {YLabel}", YLabel);
-        logger.LogDebug("ShowLegend: {ShowLegend}", ShowLegend);
-        logger.LogDebug("PieExplodeFraction: {PieExplodeFraction}", PieExplodeFraction?.ToString() ?? "null");
-        logger.LogDebug("PieSliceLabelDistance: {PieSliceLabelDistance}", PieSliceLabelDistance?.ToString() ?? "null");
-        logger.LogDebug("HistogramBinCount: {HistogramBinCount}", HistogramBinCount?.ToString() ?? "null");
-        logger.LogDebug("LineShowMarkers: {LineShowMarkers}", LineShowMarkers?.ToString() ?? "null");
-        logger.LogDebug("BarWidthPercentage: {BarWidthPercentage}", BarWidthPercentage?.ToString() ?? "null");
+        logger.Debug("ChartConfig Values:");
+        logger.Debug($"ChartType: {ChartType}", ChartType);
+        logger.Debug("Title: {Title}", Title);
+        logger.Debug("Labels: {Labels}", Labels != null ? string.Join(", ", Labels) : "null");
+        logger.Debug("Colors: {Colors}", Colors != null ? string.Join(", ", Colors.Select(c => c.ToString())) : "null");
+        logger.Debug("BaseColor: {BaseColor}", BaseColor?.ToString() ?? "null");
+        logger.Debug("KeepColorsNull: {KeepColorsNull}", KeepColorsNull);
+        logger.Debug("XLabel: {XLabel}", XLabel);
+        logger.Debug("YLabel: {YLabel}", YLabel);
+        logger.Debug("ShowLegend: {ShowLegend}", ShowLegend);
+        logger.Debug("PieExplodeFraction: {PieExplodeFraction}", PieExplodeFraction?.ToString() ?? "null");
+        logger.Debug("PieSliceLabelDistance: {PieSliceLabelDistance}", PieSliceLabelDistance?.ToString() ?? "null");
+        logger.Debug("HistogramBinCount: {HistogramBinCount}", HistogramBinCount?.ToString() ?? "null");
+        logger.Debug("LineShowMarkers: {LineShowMarkers}", LineShowMarkers?.ToString() ?? "null");
+        logger.Debug("BarWidthPercentage: {BarWidthPercentage}", BarWidthPercentage?.ToString() ?? "null");
     }
 }
