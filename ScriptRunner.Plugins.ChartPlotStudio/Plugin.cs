@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ScriptRunner.Plugins.Attributes;
 using ScriptRunner.Plugins.ChartPlotStudio.Interfaces;
 using ScriptRunner.Plugins.Logging;
+using ScriptRunner.Plugins.Models;
 using ScriptRunner.Plugins.Utilities;
 
 namespace ScriptRunner.Plugins.ChartPlotStudio;
@@ -17,7 +18,7 @@ namespace ScriptRunner.Plugins.ChartPlotStudio;
 /// </remarks>
 [PluginMetadata(
     "ChartPlot Studio",
-    "A plugin that provides...",
+    "A plugin that provides the visually attractive plotting of datasets",
     "Peter van de Pas",
     "1.0.0",
     PluginSystemConstants.CurrentPluginSystemVersion,
@@ -38,14 +39,11 @@ public class Plugin : BaseAsyncServicePlugin
     /// This method can be used to perform any initial setup required by the plugin,
     /// such as loading configuration settings or validating input.
     /// </remarks>
-    public override async Task InitializeAsync(IDictionary<string, object> configuration)
+    public override async Task InitializeAsync(IEnumerable<PluginSettingDefinition> configuration)
     {
-        // Simulate async initialization (e.g., loading settings or validating configurations)
-        await Task.Delay(100);
-
-        Console.WriteLine(configuration.TryGetValue("ChartPlotterKey", out var chartPlotterValue)
-            ? $"ChartPlotterKey value: {chartPlotterValue}"
-            : "ChartPlotterKey not found in configuration.");
+        PluginSettingsHelper.DisplayValues(configuration);
+        
+        await Task.CompletedTask;
     }
     
     /// <summary>

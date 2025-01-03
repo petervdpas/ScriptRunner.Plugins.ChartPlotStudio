@@ -13,9 +13,16 @@
         <PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.2.3" />
         <PackageReference Include="ScottPlot" Version="5.0.47" />
         <PackageReference Include="ScottPlot.Avalonia" Version="5.0.47" />
-        <PackageReference Include="ScriptRunner.Plugins" Version="1.6.56" />
+        <PackageReference Include="ScriptRunner.Plugins" Version="1.6.72" />
     </ItemGroup>
 
+    <ItemGroup>
+        <!-- Include plugin.settings.json in the build output -->
+        <None Include="plugin.settings.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+    
     <Target Name="SeparatePluginAndDependencies" AfterTargets="Build">
 
         <!-- Ensure Dependencies subdirectory exists -->

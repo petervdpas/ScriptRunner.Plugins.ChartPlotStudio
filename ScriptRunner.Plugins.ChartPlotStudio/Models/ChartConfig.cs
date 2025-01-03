@@ -109,8 +109,8 @@ public class ChartConfig
         logger.Debug("Colors: {Colors}", Colors != null ? string.Join(", ", Colors.Select(c => c.ToString())) : "null");
         logger.Debug("BaseColor: {BaseColor}", BaseColor?.ToString() ?? "null");
         logger.Debug("KeepColorsNull: {KeepColorsNull}", KeepColorsNull);
-        logger.Debug("XLabel: {XLabel}", XLabel);
-        logger.Debug("YLabel: {YLabel}", YLabel);
+        if (XLabel != null) logger.Debug("XLabel: {XLabel}", XLabel);
+        if (YLabel != null) logger.Debug("YLabel: {YLabel}", YLabel);
         logger.Debug("ShowLegend: {ShowLegend}", ShowLegend);
         logger.Debug("PieExplodeFraction: {PieExplodeFraction}", PieExplodeFraction?.ToString() ?? "null");
         logger.Debug("PieSliceLabelDistance: {PieSliceLabelDistance}", PieSliceLabelDistance?.ToString() ?? "null");
