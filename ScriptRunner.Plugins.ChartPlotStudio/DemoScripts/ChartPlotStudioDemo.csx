@@ -2,7 +2,8 @@
 {
     "TaskCategory": "Plugins",
     "TaskName": "ChartPlot Studio Demo Script",
-    "TaskDetail": "A test script for the ChartPlot Studio Plugin"
+    "TaskDetail": "A test script for the ChartPlot Studio Plugin",
+    "RequiredPlugins": ["ChartPlot Studio"]
 }
 */
 
