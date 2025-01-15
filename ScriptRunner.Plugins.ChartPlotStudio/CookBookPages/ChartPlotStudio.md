@@ -21,6 +21,7 @@ This recipe covers configuring different chart types, setting data, and displayi
 ## Overview
 
 This recipe demonstrates how to:
+
 1. Configure chart types (Pie, Line, Histogram, Bar).
 2. Customize chart properties such as labels, colors, and titles.
 3. Interactively display and manage charts using the dialog service.
@@ -246,7 +247,10 @@ return "ChartPlot Studio Demo completed";
 
 ## Tips & Notes
 
-- **Dynamic Chart Configuration**: Modify chart properties such as colors, labels, and titles dynamically before displaying.
+- **Dynamic Chart Configuration**: Modify chart properties such as colors, labels, and titles dynamically before
+  displaying.
 - **Interactivity**: Utilize dialogs to make the charts interactive for users.
-- **Multiple Chart Types**: Experiment with different chart types (Pie, Line, Histogram, Bar) for diverse visualizations.
-- **Customization**: Use optional parameters to customize aspects like legend visibility, pie slice explosion, and axis labels.
+- **Multiple Chart Types**: Experiment with different chart types (Pie, Line, Histogram, Bar) for diverse
+  visualizations.
+- **Customization**: Use optional parameters to customize aspects like legend visibility, pie slice explosion, and axis
+  labels.

@@ -13,7 +13,7 @@ using ScriptRunner.Plugins.ChartPlotStudio.Models;
 namespace ScriptRunner.Plugins.ChartPlotStudio.ViewModels;
 
 /// <summary>
-/// Represents the view model for the chart dialog, managing the chart configuration and user interactions.
+///     Represents the view model for the chart dialog, managing the chart configuration and user interactions.
 /// </summary>
 public class ChartDialogModel : ReactiveObject
 {
@@ -25,12 +25,12 @@ public class ChartDialogModel : ReactiveObject
     private string _statusMessage = "Ready";
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="ChartDialogModel"/> class.
+    ///     Initializes a new instance of the <see cref="ChartDialogModel" /> class.
     /// </summary>
     /// <param name="dialog">The parent dialog window associated with this view model.</param>
     /// <param name="chartPlotter">The chart plotter instance for managing chart creation and configuration.</param>
     /// <exception cref="ArgumentNullException">
-    /// Thrown if <paramref name="chartPlotter"/> is null.
+    ///     Thrown if <paramref name="chartPlotter" /> is null.
     /// </exception>
     public ChartDialogModel(Window dialog, IChartPlotter chartPlotter)
     {
@@ -54,7 +54,7 @@ public class ChartDialogModel : ReactiveObject
     }
 
     /// <summary>
-    /// Gets or sets the currently selected color.
+    ///     Gets or sets the currently selected color.
     /// </summary>
     public Color SelectedColor
     {
@@ -69,22 +69,22 @@ public class ChartDialogModel : ReactiveObject
     }
 
     /// <summary>
-    /// Gets the chart plotter instance for managing charts.
+    ///     Gets the chart plotter instance for managing charts.
     /// </summary>
     private IChartPlotter ChartPlotter { get; }
 
     /// <summary>
-    /// Gets the current chart configuration.
+    ///     Gets the current chart configuration.
     /// </summary>
     public ChartConfig ChartConfig { get; }
 
     /// <summary>
-    /// Gets the collection of available chart types.
+    ///     Gets the collection of available chart types.
     /// </summary>
     public ObservableCollection<ChartType> ChartTypes { get; }
 
     /// <summary>
-    /// Gets or sets the currently selected chart type.
+    ///     Gets or sets the currently selected chart type.
     /// </summary>
     public ChartType SelectedChartType
     {
@@ -93,7 +93,7 @@ public class ChartDialogModel : ReactiveObject
     }
 
     /// <summary>
-    /// Gets or sets the status message displayed in the dialog.
+    ///     Gets or sets the status message displayed in the dialog.
     /// </summary>
     public string StatusMessage
     {
@@ -102,7 +102,7 @@ public class ChartDialogModel : ReactiveObject
     }
 
     /// <summary>
-    /// Gets or sets the base color as a hexadecimal string.
+    ///     Gets or sets the base color as a hexadecimal string.
     /// </summary>
     public string? BaseColorHex
     {
@@ -124,17 +124,17 @@ public class ChartDialogModel : ReactiveObject
     }
 
     /// <summary>
-    /// Gets the command to quit the dialog.
+    ///     Gets the command to quit the dialog.
     /// </summary>
     public ReactiveCommand<Unit, Unit> QuitCommand { get; }
 
     /// <summary>
-    /// Gets the command to apply changes to the chart configuration.
+    ///     Gets the command to apply changes to the chart configuration.
     /// </summary>
     public ReactiveCommand<Unit, Unit> ApplyChangesCommand { get; }
 
     /// <summary>
-    /// Gets or sets the <see cref="AvaPlot"/> instance for displaying the chart.
+    ///     Gets or sets the <see cref="AvaPlot" /> instance for displaying the chart.
     /// </summary>
     public AvaPlot? AvaPlot
     {
@@ -143,7 +143,7 @@ public class ChartDialogModel : ReactiveObject
     }
 
     /// <summary>
-    /// Updates the chart with the current configuration and data.
+    ///     Updates the chart with the current configuration and data.
     /// </summary>
     public void UpdateChart()
     {
@@ -153,7 +153,7 @@ public class ChartDialogModel : ReactiveObject
     }
 
     /// <summary>
-    /// Closes the dialog.
+    ///     Closes the dialog.
     /// </summary>
     private void CloseDialog()
     {
@@ -161,7 +161,7 @@ public class ChartDialogModel : ReactiveObject
     }
 
     /// <summary>
-    /// Applies changes to the chart configuration and updates the chart.
+    ///     Applies changes to the chart configuration and updates the chart.
     /// </summary>
     private void ApplyChanges()
     {
@@ -192,7 +192,7 @@ public class ChartDialogModel : ReactiveObject
     }
 
     /// <summary>
-    /// Converts a <see cref="ScottPlot.Color"/> to an Avalonia <see cref="Color"/>.
+    ///     Converts a <see cref="ScottPlot.Color" /> to an Avalonia <see cref="Color" />.
     /// </summary>
     /// <param name="color">The ScottPlot color to convert.</param>
     /// <returns>The equivalent Avalonia color.</returns>
@@ -202,7 +202,7 @@ public class ChartDialogModel : ReactiveObject
     }
 
     /// <summary>
-    /// Converts an Avalonia <see cref="Color"/> to a <see cref="ScottPlot.Color"/>.
+    ///     Converts an Avalonia <see cref="Color" /> to a <see cref="ScottPlot.Color" />.
     /// </summary>
     /// <param name="color">The Avalonia color to convert.</param>
     /// <returns>The equivalent ScottPlot color.</returns>

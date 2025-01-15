@@ -8,7 +8,7 @@ using ScriptRunner.Plugins.ChartPlotStudio.ViewModels;
 namespace ScriptRunner.Plugins.ChartPlotStudio.Dialogs;
 
 /// <summary>
-/// Represents a dialog window for displaying and interacting with a chart.
+///     Represents a dialog window for displaying and interacting with a chart.
 /// </summary>
 public partial class ChartDialog : Window
 {
@@ -16,10 +16,10 @@ public partial class ChartDialog : Window
     private bool _isClosingHandled;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="ChartDialog"/> class.
+    ///     Initializes a new instance of the <see cref="ChartDialog" /> class.
     /// </summary>
     /// <exception cref="InvalidOperationException">
-    /// Thrown if the AvaPlot control cannot be found in the XAML template.
+    ///     Thrown if the AvaPlot control cannot be found in the XAML template.
     /// </exception>
     public ChartDialog()
     {
@@ -34,7 +34,7 @@ public partial class ChartDialog : Window
     }
 
     /// <summary>
-    /// Handles changes to the <see cref="StyledElement.DataContext"/> property.
+    ///     Handles changes to the <see cref="StyledElement.DataContext" /> property.
     /// </summary>
     /// <param name="sender">The source of the event.</param>
     /// <param name="e">Event arguments containing data for the change.</param>
@@ -47,7 +47,7 @@ public partial class ChartDialog : Window
     }
 
     /// <summary>
-    /// Handles the dialog's closing event to ensure proper cleanup and command execution.
+    ///     Handles the dialog's closing event to ensure proper cleanup and command execution.
     /// </summary>
     /// <param name="sender">The source of the event.</param>
     /// <param name="e">Event arguments containing details about the closing event.</param>
@@ -60,9 +60,9 @@ public partial class ChartDialog : Window
 
         viewModel.QuitCommand.Execute().Subscribe(_ => { });
     }
-    
+
     /// <summary>
-    /// Initializes the dialog's XAML components.
+    ///     Initializes the dialog's XAML components.
     /// </summary>
     private void InitializeComponent()
     {

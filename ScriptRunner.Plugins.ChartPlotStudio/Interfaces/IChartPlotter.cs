@@ -7,12 +7,12 @@ using ScriptRunner.Plugins.ChartPlotStudio.Models;
 namespace ScriptRunner.Plugins.ChartPlotStudio.Interfaces;
 
 /// <summary>
-/// Defines methods for setting up, configuring, and rendering charts.
+///     Defines methods for setting up, configuring, and rendering charts.
 /// </summary>
 public interface IChartPlotter
 {
     /// <summary>
-    /// Configures the chart with the specified settings.
+    ///     Configures the chart with the specified settings.
     /// </summary>
     /// <param name="chartType">The type of chart to create (e.g., Pie, Histogram, Line).</param>
     /// <param name="title">The title of the chart.</param>
@@ -45,60 +45,60 @@ public interface IChartPlotter
         double? barWidthPercentage = null);
 
     /// <summary>
-    /// Retrieves the current chart configuration.
+    ///     Retrieves the current chart configuration.
     /// </summary>
     /// <returns>
-    /// The current <see cref="ChartConfig"/> instance if configured.
+    ///     The current <see cref="ChartConfig" /> instance if configured.
     /// </returns>
     /// <exception cref="InvalidOperationException">
-    /// Thrown if the chart configuration has not been set up.
+    ///     Thrown if the chart configuration has not been set up.
     /// </exception>
     ChartConfig GetConfig();
 
     /// <summary>
-    /// Sets the data for the chart.
+    ///     Sets the data for the chart.
     /// </summary>
     /// <param name="data">An array of data values to be used in the chart.</param>
     void SetData(double[] data);
 
     /// <summary>
-    /// Retrieves the data set for the chart.
+    ///     Retrieves the data set for the chart.
     /// </summary>
     /// <returns>
-    /// An array of data values used in the chart.
+    ///     An array of data values used in the chart.
     /// </returns>
     double[] GetData();
 
     /// <summary>
-    /// Creates the chart and renders it on the specified plot.
+    ///     Creates the chart and renders it on the specified plot.
     /// </summary>
-    /// <param name="avaPlot">The <see cref="AvaPlot"/> instance where the chart will be rendered.</param>
+    /// <param name="avaPlot">The <see cref="AvaPlot" /> instance where the chart will be rendered.</param>
     /// <exception cref="ArgumentException">
-    /// Thrown if required parameters for a specific chart type are missing.
+    ///     Thrown if required parameters for a specific chart type are missing.
     /// </exception>
     /// <exception cref="InvalidOperationException">
-    /// Thrown if the chart configuration has not been set up.
+    ///     Thrown if the chart configuration has not been set up.
     /// </exception>
     void CreateChart(AvaPlot avaPlot);
 
     /// <summary>
-    /// Parses a color string into a <see cref="Color"/> object compatible with ScottPlot.
+    ///     Parses a color string into a <see cref="Color" /> object compatible with ScottPlot.
     /// </summary>
     /// <param name="colorString">
-    /// The color string to parse (e.g., "Red", "#FF5733", "rgb(0,255,0)").
+    ///     The color string to parse (e.g., "Red", "#FF5733", "rgb(0,255,0)").
     /// </param>
-    /// <returns>A <see cref="Color"/> object.</returns>
+    /// <returns>A <see cref="Color" /> object.</returns>
     /// <exception cref="ArgumentException">
-    /// Thrown if the color string cannot be parsed.
+    ///     Thrown if the color string cannot be parsed.
     /// </exception>
     Color ParseColor(string colorString);
 
     /// <summary>
-    /// Converts a <see cref="Color"/> object to its hexadecimal string representation.
+    ///     Converts a <see cref="Color" /> object to its hexadecimal string representation.
     /// </summary>
-    /// <param name="color">The <see cref="Color"/> object to convert.</param>
+    /// <param name="color">The <see cref="Color" /> object to convert.</param>
     /// <returns>
-    /// A string representing the color in hexadecimal format (e.g., "#RRGGBB").
+    ///     A string representing the color in hexadecimal format (e.g., "#RRGGBB").
     /// </returns>
     string ColorToHex(Color color);
 }

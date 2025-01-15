@@ -22,14 +22,14 @@ public class ChartPlotter : IChartPlotter
     private double[] _data = [];
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="ChartPlotter"/> class.
+    ///     Initializes a new instance of the <see cref="ChartPlotter" /> class.
     /// </summary>
-    /// <param name="logger">The <see cref="ILogger{TCategoryName}"/> instance for logging.</param>
+    /// <param name="logger">The <see cref="ILogger{TCategoryName}" /> instance for logging.</param>
     public ChartPlotter(IPluginLogger logger)
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
-    
+
     /// <summary>
     ///     Sets up the chart service with configuration parameters for various chart types.
     /// </summary>
