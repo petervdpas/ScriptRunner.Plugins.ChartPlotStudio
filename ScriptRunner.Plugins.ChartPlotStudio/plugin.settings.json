@@ -2,6 +2,7 @@
   {
     "Key": "PluginName",
     "Type": "string",
-    "DefaultValue": "ChartPlotStudio"
+    "DefaultValue": "ChartPlotStudio",
+    "IsSecret": false
   }
 ]
