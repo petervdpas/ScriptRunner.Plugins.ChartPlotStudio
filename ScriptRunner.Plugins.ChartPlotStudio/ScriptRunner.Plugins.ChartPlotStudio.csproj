@@ -13,7 +13,7 @@
         <PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.2.3"/>
         <PackageReference Include="ScottPlot" Version="5.0.53"/>
         <PackageReference Include="ScottPlot.Avalonia" Version="5.0.53"/>
-        <PackageReference Include="ScriptRunner.Plugins" Version="1.8.60" />
+        <PackageReference Include="ScriptRunner.Plugins" Version="1.8.62" />
     </ItemGroup>
 
     <ItemGroup>
